@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace Te_Reo_Maori
 {
@@ -94,7 +95,7 @@ namespace Te_Reo_Maori
             switch (userlevel)
             {
                 case 1:
-                    Base();
+                    Base(name);
                     break;
                 case 2:
                     Easy();
@@ -106,16 +107,43 @@ namespace Te_Reo_Maori
                     Hard();
                     break;
 
+                    
+
             }
         }
 
-        static void Base()
+        static void Base(string name)
         {
-            string quizheading = "----------Maori Quiz----------";
+            string quizheading;
+            string[] base_questions = new string[5];
+            string[] base_answers = new string[5];
+            int score = 0, questions_left = base_questions.Length;
+
+            quizheading = "----------Maori Quiz----------";
             Console.SetCursorPosition((Console.WindowWidth - quizheading.Length) / 2, Console.CursorTop);
             Console.WriteLine(quizheading);
+            Console.WriteLine(name + "'s score : " + score);
+            Console.WriteLine("Questions left : " + questions_left );
 
-            Console.WriteLine();
+
+
+            base_questions[1] = "\n\n1. What is the official language of New Zealand?" +
+                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French";
+            Console.WriteLine(base_questions[1]);
+            base_answers[1] = Console.ReadLine().ToUpper();
+            
+            if (base_answers[1] == "A")
+            {
+                Console.WriteLine("\nAmazing");
+                score++;
+                questions_left--;
+            }
+            else
+            {
+                Console.WriteLine("Oops");
+                Console.WriteLine("Answer = B. Maori");
+                questions_left--;
+            }
         }
 
         static void Easy()
