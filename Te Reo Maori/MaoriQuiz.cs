@@ -40,7 +40,7 @@ namespace Te_Reo_Maori
         static void Info()
         {
             Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
-            string About = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions," +
+            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions," +
                            " where you will be presented with a question and four possible answers: A, B, C, or D." +
                            " You will need to select the option that you believe is the correct answer to the question." +
                            "\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter." +
@@ -50,7 +50,7 @@ namespace Te_Reo_Maori
                            " Once you have answered the final question, click the \"Finish\" button to submit your answers and see your report.\r\n\r\nGood luck, and have fun!" +
                            " \r\n\r\n>>> Press enter to continue <<<";
 
-            Console.WriteLine(About);
+            Console.WriteLine(about);
 
             Console.ReadKey();
             Console.Clear();
@@ -64,8 +64,8 @@ namespace Te_Reo_Maori
 
         static void Menu()
         {
-            string name = "", userchange = "";
-            int userlevel = 0;
+            string name = "", strUserLevel;
+            int userLevel = 0;
             
             Console.WriteLine("----------\nMaori Quiz\n----------");
 
@@ -75,15 +75,20 @@ namespace Te_Reo_Maori
                 name = Console.ReadLine();
             } 
             
-            //FIX ISSUE if the user enters nothing.
-            while (userlevel != 1 && userlevel != 2 && userlevel != 3 && userlevel != 4 )
+            
+            while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != null)
             {
-                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose number) : ");
+                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose number only) : ");
                 Console.WriteLine("1. Easier than easy (base)\n2. Beginner (Easy)\n3. Standard (Medium)\n4. Expert (Hard)\n");
-                userlevel = Convert.ToInt32(Console.ReadLine());
-                if (userlevel != 1 && userlevel != 2 && userlevel != 3 && userlevel != 4)
+                strUserLevel = Console.ReadLine();
+                if (strUserLevel.Length != 0)
                 {
-                    Console.WriteLine($"\nInvalid input, {userlevel} is not a level.\n");
+                    userLevel = int.Parse(strUserLevel);
+                }
+
+                if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4)
+                {
+                    Console.WriteLine($"\nInvalid input, {userLevel} is not a level.\n");
                 }
             }
 
@@ -92,7 +97,7 @@ namespace Te_Reo_Maori
             Console.ReadKey();
             Console.Clear();
 
-            switch (userlevel)
+            switch (userLevel)
             {
                 case 1:
                     Base(name);
@@ -106,22 +111,19 @@ namespace Te_Reo_Maori
                 case 4:
                     Hard();
                     break;
-
-                    
-
             }
-        }
+        } //End of Main Method
 
         static void Base(string name)
         {
-            string quizheading;
+            string quizHeading;
             string[] base_questions = new string[5];
             string[] base_answers = new string[5];
             int score = 0, questions_left = base_questions.Length;
 
-            quizheading = "----------Maori Quiz----------";
-            Console.SetCursorPosition((Console.WindowWidth - quizheading.Length) / 2, Console.CursorTop);
-            Console.WriteLine(quizheading);
+            quizHeading = "----------Maori Quiz----------";
+            Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
+            Console.WriteLine(quizHeading);
             Console.WriteLine(name + "'s score : " + score);
             Console.WriteLine("Questions left : " + questions_left );
 
@@ -131,35 +133,34 @@ namespace Te_Reo_Maori
                                 "\nA. Japanese\nB. Maori\nC. Spanish\nD. French";
             Console.WriteLine(base_questions[1]);
             base_answers[1] = Console.ReadLine().ToUpper();
-            
-            if (base_answers[1] == "A")
+            Console.WriteLine(base_answers[1]);
+            if (base_answers[1] == "B")
             {
                 Console.WriteLine("\nAmazing");
-                score++;
+                score+=2;
                 questions_left--;
             }
             else
             {
-                Console.WriteLine("Oops");
-                Console.WriteLine("Answer = B. Maori");
+                Console.WriteLine("\rOops\nAnswer = B. Maori");
                 questions_left--;
             }
-        }
+        } //End of Base Method
 
         static void Easy()
         {
 
-        }
+        } //End of Easy Method
 
         static void Medium()
         {
 
-        }
+        } //End of Medium Method
 
         static void Hard()
         {
 
-        }
+        } //End of Hard Method
         
     }
 }
