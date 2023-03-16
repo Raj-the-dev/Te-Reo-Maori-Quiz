@@ -30,9 +30,36 @@ namespace Te_Reo_Maori
             7. Output the score and give a rewiew on their result. Ask the user whether he or she wants to re-do the quiz
             */
 
+            //About The Maori Quiz
+            Info();
+
+            
+        }
+        static void Info()
+        {
+            Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
+            string About = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions," +
+                           " where you will be presented with a question and four possible answers: A, B, C, or D." +
+                           " You will need to select the option that you believe is the correct answer to the question." +
+                           "\r\n\r\nTo answer a question, simply click on the option you believe is correct and press enter." +
+                           " If you get the answer correct you will see the live score change on top right of the corner." +
+                           " Else You will see the right answer next line. You can also see how many question your are left with also on the top right corner." +
+                           "\r\n\r\nYou must answer all questions to complete the quiz." +
+                           " Once you have answered the final question, click the \"Finish\" button to submit your answers and see your report.\r\n\r\nGood luck, and have fun!" +
+                           " \r\n\r\n>>> Press enter to continue <<<";
+
+            Console.WriteLine(About);
+
+            Console.ReadKey();
+            Console.Clear();
+
             //Menu
             Menu();
+
         }
+
+
+
         static void Menu()
         {
             string name, userchange = "";
@@ -58,6 +85,7 @@ namespace Te_Reo_Maori
 
             Console.WriteLine("\n" + name + " please press Enter to Move on");
             Console.ReadKey();
+            Console.Clear();
 
             switch (userlevel)
             {
@@ -73,12 +101,13 @@ namespace Te_Reo_Maori
                 case 4:
                     Hard();
                     break;
+
             }
         }
 
         static void Base()
         {
-
+            
         }
 
         static void Easy()
