@@ -47,7 +47,7 @@ namespace Te_Reo_Maori
                            " If you get the answer correct you will see the live score change on top right of the corner." +
                            " Else You will see the right answer next line. You can also see how many question your are left with also on the top right corner." +
                            "\r\n\r\nYou must answer all questions to complete the quiz." +
-                           " Once you have answered the final question, click the \"Finish\" button to submit your answers and see your report.\r\n\r\nGood luck, and have fun!" +
+                           " Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!" +
                            " \r\n\r\n>>> Press enter to continue <<<";
 
             Console.WriteLine(about);
@@ -119,32 +119,67 @@ namespace Te_Reo_Maori
             string quizHeading;
             string[] base_questions = new string[5];
             string[] base_answers = new string[5];
+            string[] base_input = new string[5];
             int score = 0, questions_left = base_questions.Length;
 
-            quizHeading = "----------Maori Quiz----------";
-            Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
-            Console.WriteLine(quizHeading);
-            Console.WriteLine(name + "'s score : " + score);
-            Console.WriteLine("Questions left : " + questions_left );
+            base_questions[0] = "\n\n1. What is the official language of New Zealand?" +
+                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n";
 
+            base_questions[1] = "\n\n2. What is the meaning of the Maori word \"kia ora\"?"+
+                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n";
 
+            base_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
+                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
 
-            base_questions[1] = "\n\n1. What is the official language of New Zealand?" +
-                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French";
-            Console.WriteLine(base_questions[1]);
-            base_answers[1] = Console.ReadLine().ToUpper();
-            Console.WriteLine(base_answers[1]);
-            if (base_answers[1] == "B")
+            base_questions[3] = "\n\n4.What is the Maori work for \"Love\""+
+                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n";
+
+            base_questions[4] = "\n\nWhich of the following means \" Food\" in Maori" +
+                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
+
+            
+            base_answers[0] = "B";
+            base_answers[1] = "B";
+            base_answers[2] = "A";
+            base_answers[3] = "A";
+            base_answers[4] = "C";
+
+            for (int i = 0;i < base_questions.Length; i++)
             {
-                Console.WriteLine("\nAmazing");
-                score+=2;
-                questions_left--;
+                quizHeading = "----------Maori Quiz----------";
+                Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
+                Console.WriteLine(quizHeading);
+                Console.WriteLine(name + "'s score : " + score);
+                Console.WriteLine("Questions left : " + questions_left);
+
+                while (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
+                {
+                    Console.WriteLine(base_questions[i]);
+                    base_input[i] = Console.ReadLine().ToUpper();
+                    if (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
+                    {
+                        Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
+                    }
+                }
+                
+
+                if (base_input[i] == base_answers[i])
+                {
+                    Console.WriteLine("Right answer " + name);
+                    score+=2;
+                    questions_left--;
+                }
+                else
+                {
+                    Console.WriteLine("Nice try " + name);
+                    questions_left--;
+                }
+                Console.WriteLine("\nPress Enter to continue");
+                Console.ReadKey();
+                Console.Clear();
             }
-            else
-            {
-                Console.WriteLine("\rOops\nAnswer = B. Maori");
-                questions_left--;
-            }
+            
+           
         } //End of Base Method
 
         static void Easy()
@@ -162,5 +197,9 @@ namespace Te_Reo_Maori
 
         } //End of Hard Method
         
+        static void Results()
+        {
+
+        } // End of Results Method
     }
 }
