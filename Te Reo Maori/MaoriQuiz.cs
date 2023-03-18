@@ -7,29 +7,40 @@ namespace Te_Reo_Maori
     {
         static void Main(string[] args)
         {
-            /* What is Maori(language) ?
-           Maori is an Austronesian language primarily spoken in the North Island in New Zealand.
-          Maori is not only the native language of New Zealand, but also the native people of New Zealand. Prior to European settlement in the 1800's,
-          Maori was the only language spoken in NZ.
-
-          This project helps people learn Maori which is one of the most beautiful and well done language that everyone should know about.
-
-          By Giriraj Singh Rathore */
-
             /*
-            1. User enters into the Program.
-            2. input name. If the input is bigger than 20 than ask user to enter nick name.
-            3. choose difficulty level. on that condition if the user does not input the right input then tell user to input the right difficulty.
-            4. Clear console and move to the quiz with the selected difficulty.
-            5. Answer quiz.
+             * What is Maori(language) ?
+             * Maori is an Austronesian language primarily spoken in the North Island in New Zealand.
+             * Maori is not only the native language of New Zealand, but also the native people of New Zealand. Prior to European settlement in the 1800's,
+             * Maori was the only language spoken in NZ.
 
-              a. If the Answer is invalid then repeat the instructions and tell user to input the answer again
-              b. If the Answer is wrong then display the answer. And update the question left to answer.Then tell user to press "Enter" to mover to next question.
-              c. If the Answer is right then move to next question and increase the score by 10 points.
+             * This project helps people learn Maori which is one of the most beautiful and well done language that everyone should know about.
 
-            6. Repeat the 5th step for 5 question.
-            7. Output the score and give their result. 
-            8. Ask the user whether he or she wants to re-do the quiz
+             * By Giriraj Singh Rathore
+             */
+
+
+
+            //Algorithem
+            /*
+            1. The user initiates the program.
+
+            2.The user provides their name, and if no name is entered, they are prompted to enter their name again.
+
+            3. The user selects a difficulty level, and if an invalid or empty input is entered, they will be prompted to enter the level again until a valid input is provided.
+
+            4. The console is cleared and the quiz begins with the selected difficulty level.
+
+            5. The user is presented with a question and prompted to choose an option from A, B, C, and D.
+
+              a. If the answer entered is invalid, the user will be instructed to enter a valid answer.
+              b. If the answer entered is incorrect, the correct answer will be displayed, the number of questions left to answer will be updated, and the user will be prompted to press "Enter" to move on to the next question.
+              c. If the answer entered is correct, the user will move on to the next question, and their score will be increased by 10 points.
+
+            6. The 5th step will be repeated for 5 questions.
+
+            7. The user's score will be output, and their quiz result will be provided.
+
+            8. The user will be prompted whether they would like to redo the quiz. 
             */
 
             //About The Maori Quiz
