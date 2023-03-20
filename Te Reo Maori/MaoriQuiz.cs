@@ -55,7 +55,7 @@ namespace Te_Reo_Maori
                            " where you will be presented with a question and four possible answers: A, B, C, or D." +
                            " You will need to select the option that you believe is the correct answer to the question." +
                            "\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter." +
-                           " If you get the answer correct you will see the live score change on top right of the corner." +
+                           " If you get the answer correct you will see the live score change on top right of the corner.The score will increase in 2 so for each right question you will get 2 points." +
                            " Else You will see the right answer next line. You can also see how many question your are left with also on the top right corner." +
                            "\r\n\r\nYou must answer all questions to complete the quiz." +
                            " Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!" +
@@ -146,10 +146,10 @@ namespace Te_Reo_Maori
             base_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
                                 "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
 
-            base_questions[3] = "\n\n4.What is the Maori work for \"Love\"" +
+            base_questions[3] = "\n\n4. What is the Maori work for \"Love\"" +
                                 "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n";
 
-            base_questions[4] = "\n\nWhich of the following means \" Food\" in Maori" +
+            base_questions[4] = "\n\n5. Which of the following means \"Food\" in Maori" +
                                 "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
 
             //Answer for the questions
@@ -181,13 +181,13 @@ namespace Te_Reo_Maori
 
                 if (base_input[i] == base_answers[i])
                 {
-                    Console.WriteLine("Right answer " + name);
+                    Console.WriteLine("\nRight answer " + name);
                     score += 2;
                     questions_left--;
                 }
                 else
                 {
-                    Console.WriteLine("Nice try " + name);
+                    Console.WriteLine("\nNice try " + name);
                     questions_left--;
                 }
                 Console.WriteLine("\nPress Enter to continue");
@@ -208,26 +208,26 @@ namespace Te_Reo_Maori
             int score = 0, questions_left = easy_questions.Length;
 
             //Question for easy level
-            easy_questions[0] = "\n\n1. What is the official language of New Zealand?" +
-                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n";
+            easy_questions[0] = "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)" +
+                                "\nA. 5\nB. 6\nC. 7\nD. 9\n";
 
-            easy_questions[1] = "\n\n2. What is the meaning of the Maori word \"kia ora\"?" +
-                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n";
+            easy_questions[1] = "\n\n2. Which of the following words means \"Thank You\" in Maori?" +
+                                "\nA. Ka kite\nB. Kia ora\nC. Aroha\nD. Tapu\n";
 
             easy_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
                                 "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
 
-            easy_questions[3] = "\n\n4.What is the Maori work for \"Love\"" +
-                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n";
+            easy_questions[3] = "\n\n4. What is the Maori words for \"Family\"" +
+                                "\nA. Tapu\nB. Whakapapa\nC. Rongo\nD. Whanau\n";
 
-            easy_questions[4] = "\n\nWhich of the following means \" Food\" in Maori" +
+            easy_questions[4] = "\n\n5. Which of the following means \"Food\" in Maori" +
                                 "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
 
             //Answers for the question 
             easy_answers[0] = "B";
-            easy_answers[1] = "B";
+            easy_answers[1] = "A";
             easy_answers[2] = "A";
-            easy_answers[3] = "A";
+            easy_answers[3] = "D";
             easy_answers[4] = "C";
 
             //Easy quiz
@@ -252,13 +252,13 @@ namespace Te_Reo_Maori
 
                 if (easy_input[i] == easy_answers[i])
                 {
-                    Console.WriteLine("Right answer " + name);
+                    Console.WriteLine("\nRight answer " + name);
                     score += 2;
                     questions_left--;
                 }
                 else
                 {
-                    Console.WriteLine("Nice try " + name);
+                    Console.WriteLine("\nNice try " + name);
                     questions_left--;
                 }
                 Console.WriteLine("\nPress Enter to continue");
