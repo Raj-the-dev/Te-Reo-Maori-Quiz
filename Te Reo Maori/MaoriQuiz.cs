@@ -97,6 +97,7 @@ namespace Te_Reo_Maori
                 {
                     userLevel = int.Parse(strUserLevel);
                 }
+                
 
                 if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4)
                 {
@@ -159,7 +160,7 @@ namespace Te_Reo_Maori
             base_answers[3] = "A";
             base_answers[4] = "C";
 
-            //quiz for the Base level
+            //quiz loop for the Base level
             for (int i = 0; i < base_questions.Length; i++)
             {
                 quizHeading = "----------Maori Quiz----------";
@@ -188,6 +189,7 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
+                    Console.WriteLine("Answer : " +base_answers[i]);
                     questions_left--;
                 }
                 Console.WriteLine("\nPress Enter to continue");
@@ -230,7 +232,7 @@ namespace Te_Reo_Maori
             easy_answers[3] = "D";
             easy_answers[4] = "C";
 
-            //Easy quiz
+            //Easy quiz loop 
             for (int i = 0; i < easy_questions.Length; i++)
             {
                 quizHeading = "----------Maori Quiz----------";
@@ -259,6 +261,7 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
+                    Console.WriteLine("Answer : " + easy_answers[i]);
                     questions_left--;
                 }
                 Console.WriteLine("\nPress Enter to continue");
@@ -279,30 +282,30 @@ namespace Te_Reo_Maori
             int score = 0, questions_left = medium_questions.Length;
 
             //Questions for Medium level
-            medium_questions[0] = "\n\n1. What is the official language of New Zealand?" +
-                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n";
+            medium_questions[0] = "\n\n1. What is the meaning of \"mana\" in Maori?" +
+                                "\nA. Respect\nB. Love\nC. Power\nD. Hate\n";
 
-            medium_questions[1] = "\n\n2. What is the meaning of the Maori word \"kia ora\"?" +
-                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n";
+            medium_questions[1] = "\n\n2. What is the name of the traditional Maori food cooked in an earth oven?" +
+                                "\nA. Haka\nB. Hangi\nC. Kai\nD. Awa\n";
 
-            medium_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
-                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
+            medium_questions[2] = "\n\n3. What is the name of the Maori Creation story?" +
+                                "\nA. The dreamtime\nB. The Great Flood\nC. The legend of Maui\nD. None of the Above\n";
 
-            medium_questions[3] = "\n\n4.What is the Maori work for \"Love\"" +
-                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n";
+            medium_questions[3] = "\n\n4. What is the Maori word for \"Blessing\" or \"prayer\"" +
+                                "\nA. Kawa\nB. Karakia\nC. Rongo\nD. Tapu\n";
 
-            medium_questions[4] = "\n\nWhich of the following means \" Food\" in Maori" +
-                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
+            medium_questions[4] = "\n\n5. What is the Maori word for \"Rain\"" +
+                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n";
 
             //Answers for the medium level
-            medium_answers[0] = "B";
+            medium_answers[0] = "A";
             medium_answers[1] = "B";
-            medium_answers[2] = "A";
-            medium_answers[3] = "A";
+            medium_answers[2] = "C";
+            medium_answers[3] = "B";
             medium_answers[4] = "C";
 
 
-            //Medium quiz
+            //Medium quiz loop
             for (int i = 0; i < medium_questions.Length; i++)
             {
                 quizHeading = "----------Maori Quiz----------";
@@ -324,13 +327,14 @@ namespace Te_Reo_Maori
 
                 if (medium_input[i] == medium_answers[i])
                 {
-                    Console.WriteLine("Right answer " + name);
+                    Console.WriteLine("\nRight answer " + name);
                     score += 2;
                     questions_left--;
                 }
                 else
                 {
-                    Console.WriteLine("Nice try " + name);
+                    Console.WriteLine("\nNice try " + name);
+                    Console.WriteLine("Answer : " + medium_answers[i]);
                     questions_left--;
                 }
                 Console.WriteLine("\nPress Enter to continue");
@@ -343,6 +347,76 @@ namespace Te_Reo_Maori
         }//End of medium method
         static void Hard(string name)
         {
+            //All variables the Hard level
+            string quizHeading;
+            string[] hard_questions = new string[5];
+            string[] hard_answers = new string[5];
+            string[] hard_input = new string[5];
+            int score = 0, questions_left = hard_questions.Length;
+
+            //Questions for Hard level
+            hard_questions[0] = "\n\n1. What is the meaning of the Maori word \"whare\"?" +
+                                "\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n";
+
+            hard_questions[1] = "\n\n2. What is the name of the Maori musical instrument made from a conch shell?" +
+                                "\nA. Poi\nB. Kete\nC. Putatara\nD. Awa\n";
+
+            hard_questions[2] = "\n\n3. What is the name of the Maori god of war?" +
+                                "\nA. tane Mahuta\nB. Tumatauenga\nC. Tangaroa\nD. None of the Above\n";
+
+            hard_questions[3] = "\n\n4. What is the meaning of \"whenua\" in Maori?" +
+                                "\nA. Land or Earth\nB. Sky or heavens\nC. Water or sea\nD. Cave or Hell\n";
+
+            hard_questions[4] = "\n\n5. What is the Maori word for \"Rain\"" +
+                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n";
+
+            //Answers for the Hard level
+            hard_answers[0] = "A";
+            hard_answers[1] = "C";
+            hard_answers[2] = "B";
+            hard_answers[3] = "A";
+            hard_answers[4] = "C";
+
+
+            //Hard quiz loop
+            for (int i = 0; i < hard_questions.Length; i++)
+            {
+                quizHeading = "----------Maori Quiz----------";
+                Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
+                Console.WriteLine(quizHeading);
+                Console.WriteLine(name + "'s score : " + score);
+                Console.WriteLine("Questions left : " + questions_left);
+
+                while (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
+                {
+                    Console.WriteLine(hard_questions[i]);
+                    hard_input[i] = Console.ReadLine().ToUpper();
+                    if (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
+                    {
+                        Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
+                    }
+                }
+
+
+                if (hard_input[i] == hard_answers[i])
+                {
+                    Console.WriteLine("\nRight answer " + name);
+                    score += 2;
+                    questions_left--;
+                }
+                else
+                {
+                    Console.WriteLine("\nNice try " + name);
+                    Console.WriteLine("Answer : " + hard_answers[i]);
+                    questions_left--;
+                }
+                Console.WriteLine("\nPress Enter to continue");
+                Console.ReadKey();
+                Console.Clear();
+
+            }//end of loop
+
+
 
         }
         static void Results()
