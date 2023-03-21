@@ -343,6 +343,7 @@ namespace Te_Reo_Maori
 
             }//end of loop
 
+            Report(name, score, medium_questions, medium_answers, medium_input);
 
         }//End of medium method
         static void Hard(string name)
@@ -416,12 +417,31 @@ namespace Te_Reo_Maori
 
             }//end of loop
 
+            Report(name,score, hard_questions, hard_answers, hard_input);
 
-
-        }
-        static void Results()
+        }//End of Hard level
+        static void Report(string name,int score,string[] questions, string[] answer, string[] input)
         {
+            string skip = "";
+            Console.WriteLine("-------------------\nSummary\n-------------------");
+            for (int i = 0; i < questions.Length;)
+            {
+                Console.WriteLine(questions[i]);
+                if (answer[i] == input[i])
+                {
+                    Console.WriteLine("\nCorrect");
+                }
+                else
+                {
+                    Console.WriteLine("\nIncorrect\t Answer : " + answer[i]);
+                }
 
-        }
+                Console.WriteLine("---------------------------------------------");
+
+                Console.WriteLine("Press Enter to move on to Report");
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }//End of Report
     }
 }
