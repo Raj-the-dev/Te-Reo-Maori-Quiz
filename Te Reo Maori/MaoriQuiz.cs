@@ -197,6 +197,7 @@ namespace Te_Reo_Maori
                 Console.Clear();
             }//end of loop
 
+            Report(name, score, base_questions, base_answers, base_input);
 
         } //End of Base Method
 
@@ -270,6 +271,7 @@ namespace Te_Reo_Maori
 
             }//end of loop
 
+            Report(name, score, easy_questions, easy_answers, easy_input);
 
         }//End of Easy Method
         static void Medium(string name)
@@ -422,9 +424,8 @@ namespace Te_Reo_Maori
         }//End of Hard level
         static void Report(string name,int score,string[] questions, string[] answer, string[] input)
         {
-            string skip = "";
             Console.WriteLine("-------------------\nSummary\n-------------------");
-            for (int i = 0; i < questions.Length;)
+            for (int i = 0; i < questions.Length; i++)
             {
                 Console.WriteLine(questions[i]);
                 if (answer[i] == input[i])
@@ -437,11 +438,36 @@ namespace Te_Reo_Maori
                 }
 
                 Console.WriteLine("---------------------------------------------");
-
-                Console.WriteLine("Press Enter to move on to Report");
-                Console.ReadLine();
-                Console.Clear();
             }
+            Console.WriteLine("Press Enter to move on to Report");
+            Console.ReadLine();
+            Console.Clear();
+
+            Console.WriteLine("-------------------\nReport\n-------------------");
+            Console.WriteLine("Quiz Player Name : " + name + "\nQuiz Player Score : " + score);
+            Console.WriteLine();
+
+            Console.WriteLine("\nThe passing criteria for the quiz is 6 points or above.");
+            if (score < 5)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Your points are insufficient to pass the quiz. Better luck next time", Console.ForegroundColor);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (score == 10)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Congratulations you have passes the test with flying colours.", Console.ForegroundColor);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Amazing You have passed the test.", Console.ForegroundColor);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+
+            Console.ReadLine();
         }//End of Report
     }
 }
