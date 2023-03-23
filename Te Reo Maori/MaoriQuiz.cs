@@ -46,6 +46,22 @@ namespace Te_Reo_Maori
             //About The Maori Quiz
             Info();
 
+            //After Doing the Info method ask the user to input his name.
+            string name = "";
+            //Heading
+            Console.WriteLine("----------\nMaori Quiz\n----------");
+
+            //Asking user for name
+            while (name == "")
+            {
+                Console.WriteLine("\nPlease enter your name : ");
+                name = Console.ReadLine();
+            }
+            Console.Clear();
+
+            //Calling the Level method to ask the user to input a level
+            Level(name);
+
 
         }
         static void Info()
@@ -67,27 +83,18 @@ namespace Te_Reo_Maori
             Console.ReadKey();
             Console.Clear();
 
-            //Clear the console and move to the Menu method
-            Menu();
-
         }
 
 
 
-        static void Menu()
+        static void Level(string name)
         {
-            string name = "", strUserLevel;
+            string strUserLevel;
             int userLevel = 0;
+
 
             //Heading
             Console.WriteLine("----------\nMaori Quiz\n----------");
-
-            //Asking user for name
-            while (name == "")
-            {
-                Console.WriteLine("\nPlease enter your name : ");
-                name = Console.ReadLine();
-            }
 
             //Asking user for difficulty level
             while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != null)
