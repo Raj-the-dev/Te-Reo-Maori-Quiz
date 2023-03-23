@@ -492,7 +492,35 @@ namespace Te_Reo_Maori
                 Console.ForegroundColor = ConsoleColor.White;
             }
 
-            Console.ReadLine();
+            QuizRedo(name);
         }//End of Report
+
+        static void QuizRedo(string name)
+        {
+            char redo;
+
+            Console.WriteLine("Do you want to redo the Maori Quiz (Yes/No) : ");
+            redo = Console.ReadLine().ToUpper()[0];
+            while (redo != 'Y' && redo != 'N')
+            {
+                if (redo == 'Y')
+                {
+                    Console.Clear();
+                    Level(name);
+                }
+                else if (redo == 'N')
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nGoodBye ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid input. please re-enter");
+                }
+            }
+            
+       
+        } // End of QuizRedo methodB
     }
 }
