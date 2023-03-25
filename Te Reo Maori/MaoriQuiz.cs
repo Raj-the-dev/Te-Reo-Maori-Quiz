@@ -68,15 +68,15 @@ namespace Te_Reo_Maori
         {
             // This will tell the user how the program works
             Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
-            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions," +
-                           " where you will be presented with a question and four possible answers: A, B, C, or D." +
-                           " You will need to select the option that you believe is the correct answer to the question." +
-                           "\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter." +
-                           " If you get the answer correct you will see the live score change on top right of the corner.The score will increase in 2 so for each right question you will get 2 points." +
-                           " Else You will see the right answer next line. You can also see how many question your are left with also on the top right corner." +
-                           "\r\n\r\nYou must answer all questions to complete the quiz." +
-                           " Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!" +
-                           " \r\n\r\n>>> Press enter to continue <<<";
+            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\n" +
+                           "You will need to select the option that you believe is the correct answer to the question.\r\n\r\n" +
+                           "To answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\n" +
+                           "If you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\n" +
+                           "If you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\n" +
+                           "You can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\n" +
+                           "You must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\n" +
+                           "Good luck, and have fun!\r\n\r\n" +
+                           ">>> Press enter to continue <<<";
 
             Console.WriteLine(about);
 
@@ -497,30 +497,31 @@ namespace Te_Reo_Maori
 
         static void QuizRedo(string name)
         {
-            char redo;
-
-            Console.WriteLine("Do you want to redo the Maori Quiz (Yes/No) : ");
-            redo = Console.ReadLine().ToUpper()[0];
+            char redo = ' ';
             while (redo != 'Y' && redo != 'N')
             {
-                if (redo == 'Y')
-                {
-                    Console.Clear();
-                    Level(name);
-                }
-                else if (redo == 'N')
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nGoodBye ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else
-                {
-                    Console.WriteLine("\nInvalid input. please re-enter");
-                }
+                Console.WriteLine("Do you want to redo the Maori Quiz (Yes/No) : ");
+                redo = Console.ReadLine().ToUpper()[0];
             }
-            
-       
-        } // End of QuizRedo methodB
+
+            if (redo == 'Y')
+            {
+                Console.Clear();
+                Level(name);
+            }
+            else if (redo == 'N')
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nGoodBye ");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid input. please re-enter");
+            }
+
+
+
+        } // End of QuizRedo method
     }
 }
