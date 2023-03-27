@@ -89,7 +89,7 @@ namespace Te_Reo_Maori
 
         static void Level(string name)
         {
-            string strUserLevel;
+            string strUserLevel = "";
             int userLevel = 0;
 
 
@@ -99,21 +99,25 @@ namespace Te_Reo_Maori
             //Asking user for difficulty level
             while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != null)
             {
-                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose number only) : ");
+                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose a number from the given option) : ");
                 Console.WriteLine("1. Easier than easy (base)\n2. Beginner (Easy)\n3. Standard (Medium)\n4. Expert (Hard)\n");
-                strUserLevel = Console.ReadLine();
-                if (strUserLevel.Length != 0)
+
+                //Try and catch if the user input a wrong format.
+                try
                 {
-                    userLevel = int.Parse(strUserLevel);
+                    userLevel = Convert.ToInt32(Console.ReadLine());
                 }
-                
+                catch (FormatException e)
+                {
+                    Console.WriteLine("\nERROR - You did not choose a number.");
+                }
 
                 if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4)
                 {
-                    Console.WriteLine($"\nInvalid input, {userLevel} is not a level.\n");
+                    Console.WriteLine($"\nPlease Re-enter your level. (Choose numbers from the given option)\n");
                 }
-            }
 
+            }
 
             Console.WriteLine("\n" + name + " please press Enter to Move on");
             Console.ReadKey();
