@@ -501,30 +501,40 @@ namespace Te_Reo_Maori
 
         static void QuizRedo(string name)
         {
+            string strRedo;
             char redo = ' ';
             while (redo != 'Y' && redo != 'N')
             {
                 Console.WriteLine("Do you want to redo the Maori Quiz (Yes/No) : ");
-                redo = Console.ReadLine().ToUpper()[0];
+                try
+                {
+                    redo = Console.ReadLine().ToUpper()[0];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    Console.WriteLine("Error - You did not enter anything");
+                }
+                finally
+                {
+                    if (redo == 'Y')
+                    {
+                        Console.Clear();
+                        Level(name);
+                    }
+                    else if (redo == 'N')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nGoodBye ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid input, Please consider entering something else");
+                    }
+                }
+                
+                
             }
-
-            if (redo == 'Y')
-            {
-                Console.Clear();
-                Level(name);
-            }
-            else if (redo == 'N')
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nGoodBye ");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid input. please re-enter");
-            }
-
-
 
         } // End of QuizRedo method
     }
