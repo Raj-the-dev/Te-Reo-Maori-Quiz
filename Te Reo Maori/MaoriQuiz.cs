@@ -145,36 +145,26 @@ namespace Te_Reo_Maori
         {
             //All variables in the method
             string quizHeading;
-            string[] base_questions = new string[5];
-            string[] base_answers = new string[5];
             string[] base_input = new string[5];
-            int score = 0, questions_left = base_questions.Length;
+            int score = 0, questions_left = 5;
 
-            //All 5 questions for the Base level method
-            base_questions[0] = "\n\n1. What is the official language of New Zealand?" +
-                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n";
-
-            base_questions[1] = "\n\n2. What is the meaning of the Maori word \"kia ora\"?" +
-                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n";
-
-            base_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
-                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
-
-            base_questions[3] = "\n\n4. What is the Maori work for \"Love\"" +
-                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n";
-
-            base_questions[4] = "\n\n5. Which of the following means \"Food\" in Maori" +
-                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
-
-            //Answer for the questions for the base level method
-            base_answers[0] = "B";
-            base_answers[1] = "B";
-            base_answers[2] = "A";
-            base_answers[3] = "A";
-            base_answers[4] = "C";
+            string[,] QnA = {
+                { "\n\n1. What is the official language of New Zealand?" +
+                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n",
+                  "\n\n2. What is the meaning of the Maori word \"kia ora\"?" +
+                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n",
+                  "\n\n3. What is the name of the Maori New Year celebration?" +
+                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
+                  "\n\n4. What is the Maori work for \"Love\"" +
+                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n",
+                  "\n\n5. Which of the following means \"Food\" in Maori" +
+                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
+                }
+                , { "B", "B", "A", "A", "C"}
+                };
 
             //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
-            for (int i = 0; i < base_questions.Length; i++)
+            for (int i = 0; i < 5; i++)
             {
                 //Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
@@ -186,7 +176,7 @@ namespace Te_Reo_Maori
                 //Put a while loop for asking the user for input on the question and response on invalid input.
                 while (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
                 {
-                    Console.WriteLine(base_questions[i]);
+                    Console.WriteLine(QnA[0, i]);
                     base_input[i] = Console.ReadLine().ToUpper();
                     if (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
                     {
@@ -195,7 +185,7 @@ namespace Te_Reo_Maori
                 }
 
                 //Checking if the answer was incorrect of correct.
-                if (base_input[i] == base_answers[i])
+                if (base_input[i] == QnA[1,i])
                 {
                     Console.WriteLine("\nRight answer " + name);
                     score += 2;
@@ -204,7 +194,7 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " +base_answers[i]);
+                    Console.WriteLine("Answer : " + QnA[1,i]);
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
@@ -214,7 +204,7 @@ namespace Te_Reo_Maori
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, base_questions, base_answers, base_input);
+            Report(name, score, QnA, base_input);
 
         } //End of Base Method
 
@@ -222,36 +212,28 @@ namespace Te_Reo_Maori
         {
             //All variable in Easy level including strings, string arrrays, integer
             string quizHeading;
-            string[] easy_questions = new string[5];
-            string[] easy_answers = new string[5];
             string[] easy_input = new string[5];
-            int score = 0, questions_left = easy_questions.Length;
-
-            //All 5 questions for the Easy level method
-            easy_questions[0] = "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)" +
-                                "\nA. 5\nB. 6\nC. 7\nD. 9\n";
-
-            easy_questions[1] = "\n\n2. Which of the following words means \"Thank You\" in Maori?" +
-                                "\nA. Ka kite\nB. Kia ora\nC. Aroha\nD. Tapu\n";
-
-            easy_questions[2] = "\n\n3. What is the name of the Maori New Year celebration?" +
-                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n";
-
-            easy_questions[3] = "\n\n4. What is the Maori words for \"Family\"" +
-                                "\nA. Tapu\nB. Whakapapa\nC. Rongo\nD. Whanau\n";
-
-            easy_questions[4] = "\n\n5. Which of the following means \"Food\" in Maori" +
-                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n";
-
-            //Answer for the questions for the Easy level method 
-            easy_answers[0] = "B";
-            easy_answers[1] = "A";
-            easy_answers[2] = "A";
-            easy_answers[3] = "D";
-            easy_answers[4] = "C";
+            int score = 0, questions_left = 5;
+            
+            string[,] QnA =
+            {
+                {
+                    "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)" +
+                                "\nA. 5\nB. 6\nC. 7\nD. 9\n",
+                    "\n\n2. Which of the following words means \"Thank You\" in Maori?" +
+                                "\nA. Ka kite\nB. Kia ora\nC. Aroha\nD. Tapu\n",
+                    "\n\n3. What is the name of the Maori New Year celebration?" +
+                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
+                    "\n\n4. What is the Maori words for \"Family\"" +
+                                "\nA. Tapu\nB. Whakapapa\nC. Rongo\nD. Whanau\n",
+                    "\n\n5. Which of the following means \"Food\" in Maori" +
+                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
+                },
+                {"B", "A", "A", "D", "C"}
+            };
 
             ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
-            for (int i = 0; i < easy_questions.Length; i++)
+            for (int i = 0; i < 5; i++)
             {
                 //Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
@@ -263,7 +245,7 @@ namespace Te_Reo_Maori
                 //Put a while loop for asking the user for input on the question and response on invalid input.
                 while (easy_input[i] != "A" && easy_input[i] != "B" && easy_input[i] != "C" && easy_input[i] != "D")
                 {
-                    Console.WriteLine(easy_questions[i]);
+                    Console.WriteLine(QnA[0, i]);
                     easy_input[i] = Console.ReadLine().ToUpper();
                     if (easy_input[i] != "A" && easy_input[i] != "B" && easy_input[i] != "C" && easy_input[i] != "D")
                     {
@@ -272,7 +254,7 @@ namespace Te_Reo_Maori
                 }
 
                 //Checking if the answer was incorrect of correct.
-                if (easy_input[i] == easy_answers[i])
+                if (easy_input[i] == QnA[1, i])
                 {
                     Console.WriteLine("\nRight answer " + name);
                     score += 2;
@@ -281,18 +263,17 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + easy_answers[i]);
+                    Console.WriteLine("Answer : " + QnA[1, i]);
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
                 Console.WriteLine("\nPress Enter to continue");
                 Console.ReadKey();
                 Console.Clear();
-
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, easy_questions, easy_answers, easy_input);
+            Report(name, score, QnA, easy_input);
 
         }//End of Easy Method
         static void Medium(string name)
@@ -370,7 +351,7 @@ namespace Te_Reo_Maori
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, medium_questions, medium_answers, medium_input);
+            //Report(name, score, medium_questions, medium_answers, medium_input);
 
         }//End of medium method
         static void Hard(string name)
@@ -448,22 +429,22 @@ namespace Te_Reo_Maori
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name,score, hard_questions, hard_answers, hard_input);
+            //Report(name,score, hard_questions, hard_answers, hard_input);
 
         }//End of Hard level
-        static void Report(string name,int score,string[] questions, string[] answer, string[] input)
+        static void Report(string name,int score, string[,] QnA, string[] input)
         {
             Console.WriteLine("-------------------\nSummary\n-------------------");
-            for (int i = 0; i < questions.Length; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(questions[i]);
-                if (answer[i] == input[i])
+                Console.WriteLine(QnA[0, i]);
+                if (QnA[1, i] == input[i])
                 {
                     Console.WriteLine("\nCorrect");
                 }
                 else
                 {
-                    Console.WriteLine("\nIncorrect\t Answer : " + answer[i]);
+                    Console.WriteLine("\nIncorrect\t Answer : " + QnA[1, i]);
                 }
 
                 Console.WriteLine("---------------------------------------------");
