@@ -232,7 +232,7 @@ namespace Te_Reo_Maori
                 {"B", "A", "A", "D", "C"}
             };
 
-            ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
+            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
             for (int i = 0; i < 5; i++)
             {
                 //Heading for the Quiz, Score and the questions left to answer.
@@ -280,37 +280,28 @@ namespace Te_Reo_Maori
         {
             //All variables the medium level
             string quizHeading;
-            string[] medium_questions = new string[5];
-            string[] medium_answers = new string[5];
             string[] medium_input = new string[5];
-            int score = 0, questions_left = medium_questions.Length;
+            int score = 0, questions_left = 5;
 
-            //All 5 questions for the Medium level method
-            medium_questions[0] = "\n\n1. What is the meaning of \"mana\" in Maori?" +
-                                "\nA. Respect\nB. Love\nC. Power\nD. Hate\n";
+            string[,] QnA =
+            {
+                {
+                    "\n\n1. What is the meaning of \"mana\" in Maori?" +
+                                "\nA. Respect\nB. Love\nC. Power\nD. Hate\n",
+                    "\n\n2. What is the name of the traditional Maori food cooked in an earth oven?" +
+                                "\nA. Haka\nB. Hangi\nC. Kai\nD. Awa\n",
+                    "\n\n3. What is the name of the Maori Creation story?" +
+                                "\nA. The dreamtime\nB. The Great Flood\nC. The legend of Maui\nD. None of the Above\n",
+                    "\n\n4. What is the Maori word for \"Blessing\" or \"prayer\"" +
+                                "\nA. Kawa\nB. Karakia\nC. Rongo\nD. Tapu\n",
+                    "\n\n5. What is the Maori word for \"Rain\"" +
+                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
+                },
+                { "A", "B", "C","B", "C"}
+            };
 
-            medium_questions[1] = "\n\n2. What is the name of the traditional Maori food cooked in an earth oven?" +
-                                "\nA. Haka\nB. Hangi\nC. Kai\nD. Awa\n";
-
-            medium_questions[2] = "\n\n3. What is the name of the Maori Creation story?" +
-                                "\nA. The dreamtime\nB. The Great Flood\nC. The legend of Maui\nD. None of the Above\n";
-
-            medium_questions[3] = "\n\n4. What is the Maori word for \"Blessing\" or \"prayer\"" +
-                                "\nA. Kawa\nB. Karakia\nC. Rongo\nD. Tapu\n";
-
-            medium_questions[4] = "\n\n5. What is the Maori word for \"Rain\"" +
-                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n";
-
-            //Answer for the questions for the Medium level method
-            medium_answers[0] = "A";
-            medium_answers[1] = "B";
-            medium_answers[2] = "C";
-            medium_answers[3] = "B";
-            medium_answers[4] = "C";
-
-
-            ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Medium level
-            for (int i = 0; i < medium_questions.Length; i++)
+            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
+            for (int i = 0; i < 5; i++)
             {
                 //Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
@@ -322,7 +313,7 @@ namespace Te_Reo_Maori
                 //Put a while loop for asking the user for input on the question and response on invalid input.
                 while (medium_input[i] != "A" && medium_input[i] != "B" && medium_input[i] != "C" && medium_input[i] != "D")
                 {
-                    Console.WriteLine(medium_questions[i]);
+                    Console.WriteLine(QnA[0, i]);
                     medium_input[i] = Console.ReadLine().ToUpper();
                     if (medium_input[i] != "A" && medium_input[i] != "B" && medium_input[i] != "C" && medium_input[i] != "D")
                     {
@@ -331,7 +322,7 @@ namespace Te_Reo_Maori
                 }
 
                 //Checking if the answer was incorrect of correct.
-                if (medium_input[i] == medium_answers[i])
+                if (medium_input[i] == QnA[1, i])
                 {
                     Console.WriteLine("\nRight answer " + name);
                     score += 2;
@@ -340,55 +331,45 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + medium_answers[i]);
+                    Console.WriteLine("Answer : " + QnA[1, i]);
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
                 Console.WriteLine("\nPress Enter to continue");
                 Console.ReadKey();
                 Console.Clear();
-
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            //Report(name, score, medium_questions, medium_answers, medium_input);
+            Report(name, score, QnA, medium_input);
 
         }//End of medium method
         static void Hard(string name)
         {
             //All variables the Hard level
             string quizHeading;
-            string[] hard_questions = new string[5];
-            string[] hard_answers = new string[5];
             string[] hard_input = new string[5];
-            int score = 0, questions_left = hard_questions.Length;
+            int score = 0, questions_left = 5;
 
-            ////All 5 questions for the Hard level method
-            hard_questions[0] = "\n\n1. What is the meaning of the Maori word \"whare\"?" +
-                                "\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n";
+            string[,] QnA =
+            {
+                {
+                    "\n\n1. What is the meaning of the Maori word \"whare\"?" +
+                                "\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n",
+                    "\n\n2. What is the name of the Maori musical instrument made from a conch shell?" +
+                                "\nA. Poi\nB. Kete\nC. Putatara\nD. Awa\n",
+                    "\n\n3. What is the name of the Maori god of war?" +
+                                "\nA. tane Mahuta\nB. Tumatauenga\nC. Tangaroa\nD. None of the Above\n",
+                    "\n\n4. What is the meaning of \"whenua\" in Maori?" +
+                                "\nA. Land or Earth\nB. Sky or heavens\nC. Water or sea\nD. Cave or Hell\n",
+                    "\n\n5. What is the Maori word for \"Rain\"" +
+                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
+                },
+                {"A", "C", "B", "A", "C" }
+            };
 
-            hard_questions[1] = "\n\n2. What is the name of the Maori musical instrument made from a conch shell?" +
-                                "\nA. Poi\nB. Kete\nC. Putatara\nD. Awa\n";
-
-            hard_questions[2] = "\n\n3. What is the name of the Maori god of war?" +
-                                "\nA. tane Mahuta\nB. Tumatauenga\nC. Tangaroa\nD. None of the Above\n";
-
-            hard_questions[3] = "\n\n4. What is the meaning of \"whenua\" in Maori?" +
-                                "\nA. Land or Earth\nB. Sky or heavens\nC. Water or sea\nD. Cave or Hell\n";
-
-            hard_questions[4] = "\n\n5. What is the Maori word for \"Rain\"" +
-                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n";
-
-            //Answer for the questions for the Hard level method
-            hard_answers[0] = "A";
-            hard_answers[1] = "C";
-            hard_answers[2] = "B";
-            hard_answers[3] = "A";
-            hard_answers[4] = "C";
-
-
-            ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Hard level
-            for (int i = 0; i < hard_questions.Length; i++)
+            ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
+            for (int i = 0; i < 5; i++)
             {
                 //Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
@@ -400,7 +381,7 @@ namespace Te_Reo_Maori
                 //Put a while loop for asking the user for input on the question and response on invalid input.
                 while (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
                 {
-                    Console.WriteLine(hard_questions[i]);
+                    Console.WriteLine(QnA[0, i]);
                     hard_input[i] = Console.ReadLine().ToUpper();
                     if (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
                     {
@@ -409,7 +390,7 @@ namespace Te_Reo_Maori
                 }
 
                 //Checking if the answer was incorrect of correct.
-                if (hard_input[i] == hard_answers[i])
+                if (hard_input[i] == QnA[1, i])
                 {
                     Console.WriteLine("\nRight answer " + name);
                     score += 2;
@@ -418,18 +399,17 @@ namespace Te_Reo_Maori
                 else
                 {
                     Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + hard_answers[i]);
+                    Console.WriteLine("Answer : " + QnA[1, i]);
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
                 Console.WriteLine("\nPress Enter to continue");
                 Console.ReadKey();
                 Console.Clear();
-
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            //Report(name,score, hard_questions, hard_answers, hard_input);
+            Report(name, score, QnA, hard_input);
 
         }//End of Hard level
         static void Report(string name,int score, string[,] QnA, string[] input)
@@ -513,8 +493,6 @@ namespace Te_Reo_Maori
                         Console.WriteLine("\nInvalid input, Please consider entering something else");
                     }
                 }
-                
-                
             }
 
         } // End of QuizRedo method
