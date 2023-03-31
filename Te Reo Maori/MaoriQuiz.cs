@@ -7,42 +7,6 @@ namespace Te_Reo_Maori
     {
         static void Main(string[] args)
         {
-            /*
-             * What is Maori(language) ?
-             * Maori is an Austronesian language primarily spoken in the North Island in New Zealand.
-             * Maori is not only the native language of New Zealand, but also the native people of New Zealand. Prior to European settlement in the 1800's,
-             * Maori was the only language spoken in NZ.
-
-             * This project helps people learn Maori which is one of the most beautiful and well done language that everyone should know about.
-
-             * By Giriraj Singh Rathore
-             */
-
-
-
-            //Algorithem
-            /*
-            1. The user initiates the program.
-
-            2.The user provides their name, and if no name is entered, they are prompted to enter their name again.
-
-            3. The user selects a difficulty level, and if an invalid or empty input is entered, they will be prompted to enter the level again until a valid input is provided.
-
-            4. The console is cleared and the quiz begins with the selected difficulty level.
-
-            5. The user is presented with a question and prompted to choose an option from A, B, C, and D.
-
-              a. If the answer entered is invalid, the user will be instructed to enter a valid answer.
-              b. If the answer entered is incorrect, the correct answer will be displayed, the number of questions left to answer will be updated, and the user will be prompted to press "Enter" to move on to the next question.
-              c. If the answer entered is correct, the user will move on to the next question, and their score will be increased by 10 points.
-
-            6. The 5th step will be repeated for 5 questions.
-
-            7. The user's score will be output, and their quiz result will be provided.
-
-            8. The user will be prompted whether they would like to redo the quiz. 
-            */
-
             //About The Maori Quiz
             Info();
 
@@ -61,8 +25,6 @@ namespace Te_Reo_Maori
 
             //Calling the Level method to ask the user to input a level
             Level(name);
-
-
         }
         static void Info()
         {
@@ -82,16 +44,12 @@ namespace Te_Reo_Maori
 
             Console.ReadKey();
             Console.Clear();
-
         }
-
-
 
         static void Level(string name)
         {
             string strUserLevel = "";
             int userLevel = 0;
-
 
             //Heading
             Console.WriteLine("----------\nMaori Quiz\n----------");
@@ -116,7 +74,6 @@ namespace Te_Reo_Maori
                 {
                     Console.WriteLine($"\nPlease Re-enter your level. (Choose numbers from the given option)\n");
                 }
-
             }
 
             Console.WriteLine("\n" + name + " please press Enter to Move on");
@@ -205,7 +162,6 @@ namespace Te_Reo_Maori
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
             Report(name, score, QnA, base_input);
-
         } //End of Base Method
 
         static void Easy(string name)
@@ -252,7 +208,6 @@ namespace Te_Reo_Maori
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
                 }
-
                 //Checking if the answer was incorrect of correct.
                 if (easy_input[i] == QnA[1, i])
                 {
@@ -426,7 +381,6 @@ namespace Te_Reo_Maori
                 {
                     Console.WriteLine("\nIncorrect\t Answer : " + QnA[1, i]);
                 }
-
                 Console.WriteLine("---------------------------------------------");
             }
             Console.WriteLine("Press Enter to move on to Report");
@@ -456,7 +410,6 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Amazing You have passed the test.", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
-
             QuizRedo(name);
         }//End of Report
 
@@ -494,7 +447,6 @@ namespace Te_Reo_Maori
                     }
                 }
             }
-
         } // End of QuizRedo method
     }
 }
