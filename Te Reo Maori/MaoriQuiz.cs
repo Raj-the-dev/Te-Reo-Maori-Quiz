@@ -16,13 +16,12 @@ namespace Te_Reo_Maori
             Console.WriteLine("----------\nMaori Quiz\n----------");
 
             //Asking user for name
-            while (name == "")
+            while (name.Equals(""))
             {
                 Console.WriteLine("\nPlease enter your name : ");
                 name = Console.ReadLine();
-            }
+            } 
             Console.Clear();
-
             //Calling the Level method to ask the user to input a level
             Level(name);
         }
@@ -30,25 +29,15 @@ namespace Te_Reo_Maori
         {
             // This will tell the user how the program works
             Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
-            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\n" +
-                           "You will need to select the option that you believe is the correct answer to the question.\r\n\r\n" +
-                           "To answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\n" +
-                           "If you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\n" +
-                           "If you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\n" +
-                           "You can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\n" +
-                           "You must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\n" +
-                           "Good luck, and have fun!\r\n\r\n" +
-                           ">>> Press enter to continue <<<";
+            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\nYou will need to select the option that you believe is the correct answer to the question.\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\nIf you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\nIf you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\nYou can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\nYou must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!\r\n\r\n>>> Press enter to continue <<<";
 
             Console.WriteLine(about);
-
             Console.ReadKey();
             Console.Clear();
         }
 
         static void Level(string name)
         {
-            string strUserLevel = "";
             int userLevel = 0;
 
             //Heading
@@ -65,20 +54,15 @@ namespace Te_Reo_Maori
                 {
                     userLevel = Convert.ToInt32(Console.ReadLine());
                 }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("\nERROR - You did not choose a number.");
-                }
+                catch (FormatException) { Console.WriteLine("\nERROR - You did not choose a number."); }
 
                 if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4)
                 {
-                    Console.WriteLine($"\nPlease Re-enter your level. (Choose numbers from the given option)\n");
+                    Console.WriteLine("\nPlease Re-enter your level. (Choose numbers from the given option)\n");
                 }
             }
 
-            Console.WriteLine("\n" + name + " please press Enter to Move on");
-            Console.ReadKey();
-            Console.Clear();
+            Console.WriteLine("\n" + name + " please press Enter to Move on"); Console.ReadKey(); Console.Clear();
             
             //using the switch to change the Different methods for levels
             switch (userLevel)
@@ -123,7 +107,7 @@ namespace Te_Reo_Maori
             //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
             for (int i = 0; i < 5; i++)
             {
-                //Heading for the Quiz, Score and the questions left to answer.
+                // Centered Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
@@ -131,15 +115,15 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Questions left : " + questions_left);
 
                 //Put a while loop for asking the user for input on the question and response on invalid input.
-                while (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
+                do
                 {
                     Console.WriteLine(QnA[0, i]);
                     base_input[i] = Console.ReadLine().ToUpper();
-                    if (base_input[i] != "A" && base_input[i] != "B" && base_input[i] != "C" && base_input[i] != "D")
+                    if (!base_input[i].Equals("A") && !base_input[i].Equals("B") && !base_input[i].Equals("C") && !base_input[i].Equals("D"))
                     {
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
-                }
+                } while (!base_input[i].Equals("A") && !base_input[i].Equals("B") && !base_input[i].Equals("C") && !base_input[i].Equals("D"));
 
                 //Checking if the answer was incorrect of correct.
                 if (base_input[i] == QnA[1,i])
@@ -155,9 +139,7 @@ namespace Te_Reo_Maori
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
@@ -199,15 +181,15 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Questions left : " + questions_left);
 
                 //Put a while loop for asking the user for input on the question and response on invalid input.
-                while (easy_input[i] != "A" && easy_input[i] != "B" && easy_input[i] != "C" && easy_input[i] != "D")
+                do
                 {
                     Console.WriteLine(QnA[0, i]);
                     easy_input[i] = Console.ReadLine().ToUpper();
-                    if (easy_input[i] != "A" && easy_input[i] != "B" && easy_input[i] != "C" && easy_input[i] != "D")
+                    if (!easy_input[i].Equals("A") && !easy_input[i].Equals("B") && !easy_input[i].Equals("C") && !easy_input[i].Equals("D"))
                     {
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
-                }
+                } while (!easy_input[i].Equals("A") && !easy_input[i].Equals("B") && !easy_input[i].Equals("C") && !easy_input[i].Equals("D"));
                 //Checking if the answer was incorrect of correct.
                 if (easy_input[i] == QnA[1, i])
                 {
@@ -222,9 +204,7 @@ namespace Te_Reo_Maori
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
@@ -266,15 +246,15 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Questions left : " + questions_left);
 
                 //Put a while loop for asking the user for input on the question and response on invalid input.
-                while (medium_input[i] != "A" && medium_input[i] != "B" && medium_input[i] != "C" && medium_input[i] != "D")
+                do
                 {
                     Console.WriteLine(QnA[0, i]);
                     medium_input[i] = Console.ReadLine().ToUpper();
-                    if (medium_input[i] != "A" && medium_input[i] != "B" && medium_input[i] != "C" && medium_input[i] != "D")
+                    if (!medium_input[i].Equals("A") && !medium_input[i].Equals("B") && !medium_input[i].Equals("C") && !medium_input[i].Equals("D"))
                     {
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
-                }
+                } while (!medium_input[i].Equals("A") && !medium_input[i].Equals("B") && !medium_input[i].Equals("C") && !medium_input[i].Equals("D"));
 
                 //Checking if the answer was incorrect of correct.
                 if (medium_input[i] == QnA[1, i])
@@ -290,9 +270,7 @@ namespace Te_Reo_Maori
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\nPress Enter to continue");  Console.ReadKey(); Console.Clear();
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
@@ -334,15 +312,15 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Questions left : " + questions_left);
 
                 //Put a while loop for asking the user for input on the question and response on invalid input.
-                while (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
+                do
                 {
                     Console.WriteLine(QnA[0, i]);
                     hard_input[i] = Console.ReadLine().ToUpper();
-                    if (hard_input[i] != "A" && hard_input[i] != "B" && hard_input[i] != "C" && hard_input[i] != "D")
+                    if (!hard_input[i].Equals("A") && !hard_input[i].Equals("B") && !hard_input[i].Equals("C") && !hard_input[i].Equals("D"))
                     {
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
-                }
+                } while (!hard_input[i].Equals("A") && !hard_input[i].Equals("B") && !hard_input[i].Equals("C") && !hard_input[i].Equals("D"));
 
                 //Checking if the answer was incorrect of correct.
                 if (hard_input[i] == QnA[1, i])
@@ -358,9 +336,7 @@ namespace Te_Reo_Maori
                     questions_left--;
                 }
                 //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
             }//end of loop
 
             //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
@@ -383,9 +359,7 @@ namespace Te_Reo_Maori
                 }
                 Console.WriteLine("---------------------------------------------");
             }
-            Console.WriteLine("Press Enter to move on to Report");
-            Console.ReadLine();
-            Console.Clear();
+            Console.WriteLine("Press Enter to move on to Report"); Console.ReadLine(); Console.Clear();
 
             Console.WriteLine("-------------------\nReport\n-------------------");
             Console.WriteLine("Quiz Player Name : " + name + "\nQuiz Player Score : " + score);
