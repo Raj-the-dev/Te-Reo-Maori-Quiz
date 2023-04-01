@@ -89,20 +89,17 @@ namespace Te_Reo_Maori
             string[] base_input = new string[5];
             int score = 0, questions_left = 5;
 
-            string[,] QnA = {
-                { "\n\n1. What is the official language of New Zealand?" +
-                                "\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n",
-                  "\n\n2. What is the meaning of the Maori word \"kia ora\"?" +
-                                "\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n",
-                  "\n\n3. What is the name of the Maori New Year celebration?" +
-                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
-                  "\n\n4. What is the Maori work for \"Love\"" +
-                                "\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n",
-                  "\n\n5. Which of the following means \"Food\" in Maori" +
-                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
+            string[,] QnA = 
+            {
+                {
+                    "\n\n1. What is the official language of New Zealand?\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n",
+                    "\n\n2. What is the meaning of the Maori word \"kia ora\"?\nA. Goodbye\nB. Hello\nC. Thank you\nD. Welcome\n",
+                    "\n\n3. What is the name of the Maori New Year celebration?\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
+                    "\n\n4. What is the Maori work for \"Love\"\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n",
+                    "\n\n5. Which of the following means \"Food\" in Maori\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
                 }
-                , { "B", "B", "A", "A", "C"}
-                };
+                , { "B", "B", "A", "A", "C"} 
+            };
 
             //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
             for (int i = 0; i < 5; i++)
@@ -156,16 +153,11 @@ namespace Te_Reo_Maori
             string[,] QnA =
             {
                 {
-                    "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)" +
-                                "\nA. 5\nB. 6\nC. 7\nD. 9\n",
-                    "\n\n2. Which of the following words means \"Thank You\" in Maori?" +
-                                "\nA. Ka kite\nB. Kia ora\nC. Aroha\nD. Tapu\n",
-                    "\n\n3. What is the name of the Maori New Year celebration?" +
-                                "\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
-                    "\n\n4. What is the Maori words for \"Family\"" +
-                                "\nA. Tapu\nB. Whakapapa\nC. Rongo\nD. Whanau\n",
-                    "\n\n5. Which of the following means \"Food\" in Maori" +
-                                "\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
+                    "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)\nA. 5\nB. 6\nC. 7\nD. 9\n",
+                    "\n\n2. Which of the following words means \"Thank You\" in Maori?\nA. Ka kite\nB. Kia ora\nC. Aroha\nD. Tapu\n",
+                    "\n\n3. What is the name of the Maori New Year celebration?\nA. Matariki\nB. Mardi Gas\nC. Cinco de Mayo\nD. None of the Above\n",
+                    "\n\n4. What is the Maori words for \"Family\"\nA. Tapu\nB. Whakapapa\nC. Rongo\nD. Whanau\n",
+                    "\n\n5. Which of the following means \"Food\" in Maori\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
                 },
                 {"B", "A", "A", "D", "C"}
             };
@@ -221,16 +213,11 @@ namespace Te_Reo_Maori
             string[,] QnA =
             {
                 {
-                    "\n\n1. What is the meaning of \"mana\" in Maori?" +
-                                "\nA. Respect\nB. Love\nC. Power\nD. Hate\n",
-                    "\n\n2. What is the name of the traditional Maori food cooked in an earth oven?" +
-                                "\nA. Haka\nB. Hangi\nC. Kai\nD. Awa\n",
-                    "\n\n3. What is the name of the Maori Creation story?" +
-                                "\nA. The dreamtime\nB. The Great Flood\nC. The legend of Maui\nD. None of the Above\n",
-                    "\n\n4. What is the Maori word for \"Blessing\" or \"prayer\"" +
-                                "\nA. Kawa\nB. Karakia\nC. Rongo\nD. Tapu\n",
-                    "\n\n5. What is the Maori word for \"Rain\"" +
-                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
+                    "\n\n1. What is the meaning of \"mana\" in Maori?\nA. Respect\nB. Love\nC. Power\nD. Hate\n",
+                    "\n\n2. What is the name of the traditional Maori food cooked in an earth oven?\nA. Haka\nB. Hangi\nC. Kai\nD. Awa\n",
+                    "\n\n3. What is the name of the Maori Creation story?\nA. The dreamtime\nB. The Great Flood\nC. The legend of Maui\nD. None of the Above\n",
+                    "\n\n4. What is the Maori word for \"Blessing\" or \"prayer\"\nA. Kawa\nB. Karakia\nC. Rongo\nD. Tapu\n",
+                    "\n\n5. What is the Maori word for \"Rain\"\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
                 },
                 { "A", "B", "C","B", "C"}
             };
@@ -287,16 +274,11 @@ namespace Te_Reo_Maori
             string[,] QnA =
             {
                 {
-                    "\n\n1. What is the meaning of the Maori word \"whare\"?" +
-                                "\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n",
-                    "\n\n2. What is the name of the Maori musical instrument made from a conch shell?" +
-                                "\nA. Poi\nB. Kete\nC. Putatara\nD. Awa\n",
-                    "\n\n3. What is the name of the Maori god of war?" +
-                                "\nA. tane Mahuta\nB. Tumatauenga\nC. Tangaroa\nD. None of the Above\n",
-                    "\n\n4. What is the meaning of \"whenua\" in Maori?" +
-                                "\nA. Land or Earth\nB. Sky or heavens\nC. Water or sea\nD. Cave or Hell\n",
-                    "\n\n5. What is the Maori word for \"Rain\"" +
-                                "\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
+                    "\n\n1. What is the meaning of the Maori word \"whare\"?\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n",
+                    "\n\n2. What is the name of the Maori musical instrument made from a conch shell?\nA. Poi\nB. Kete\nC. Putatara\nD. Awa\n",
+                    "\n\n3. What is the name of the Maori god of war?\nA. tane Mahuta\nB. Tumatauenga\nC. Tangaroa\nD. None of the Above\n",
+                    "\n\n4. What is the meaning of \"whenua\" in Maori?\nA. Land or Earth\nB. Sky or heavens\nC. Water or sea\nD. Cave or Hell\n",
+                    "\n\n5. What is the Maori word for \"Rain\"\nA. Whenua\nB. AWA\nC. Ua\nD. None of the Above\n"
                 },
                 {"A", "C", "B", "A", "C" }
             };
