@@ -108,6 +108,7 @@ namespace Te_Reo_Maori
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
+                Console.WriteLine("Base Level");
                 Console.WriteLine(name + "'s score : " + score);
                 Console.WriteLine("Questions left : " + questions_left);
 
@@ -169,6 +170,7 @@ namespace Te_Reo_Maori
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
+                Console.WriteLine("Easy Level");
                 Console.WriteLine(name + "'s score : " + score);
                 Console.WriteLine("Questions left : " + questions_left);
 
@@ -229,6 +231,7 @@ namespace Te_Reo_Maori
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
+                Console.WriteLine("Medium Level");
                 Console.WriteLine(name + "'s score : " + score);
                 Console.WriteLine("Questions left : " + questions_left);
 
@@ -290,6 +293,7 @@ namespace Te_Reo_Maori
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
+                Console.WriteLine("Hard Level");
                 Console.WriteLine(name + "'s score : " + score);
                 Console.WriteLine("Questions left : " + questions_left);
 
