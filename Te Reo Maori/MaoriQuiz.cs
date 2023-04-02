@@ -29,7 +29,7 @@ namespace Te_Reo_Maori
         {
             // This will tell the user how the program works
             Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
-            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\nYou will need to select the option that you believe is the correct answer to the question.\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\nIf you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\nIf you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\nYou can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\nYou must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!\r\n\r\n>>> Press enter to continue <<<";
+            string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\nYou will need to select the option that you believe is the correct answer to the question.\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\nIf you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\nIf you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\nYou can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\nYou must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!\r\n\r\n>>> Press any key to continue <<<";
 
             Console.WriteLine(about);
             Console.ReadKey();
@@ -44,10 +44,10 @@ namespace Te_Reo_Maori
             Console.WriteLine("----------\nMaori Quiz\n----------");
 
             //Asking user for difficulty level
-            while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != null)
+            while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != 5)
             {
                 Console.WriteLine("\nWhat is your desired Difficulty Level (Choose a number from the given option) : ");
-                Console.WriteLine("1. Easier than easy (base)\n2. Beginner (Easy)\n3. Standard (Medium)\n4. Expert (Hard)\n");
+                Console.WriteLine("1. base\n2. Easy\n3. Medium\n4. Hard\n5. Exit Quiz");
 
                 //Try and catch if the user input a wrong format.
                 try
@@ -55,14 +55,18 @@ namespace Te_Reo_Maori
                     userLevel = Convert.ToInt32(Console.ReadLine());
                 }
                 catch (FormatException) { Console.WriteLine("\nERROR - You did not choose a number."); }
+                catch (Exception) { Console.WriteLine("You did not enter any level from above"); }
 
-                if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4)
+                finally
                 {
-                    Console.WriteLine("\nPlease Re-enter your level. (Choose numbers from the given option)\n");
-                }
+                    if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != 5)
+                    {
+                        Console.WriteLine("\nPlease Re-enter your level. (Choose numbers from the given option)\n");
+                    }
+                } 
             }
 
-            Console.WriteLine("\n" + name + " please press Enter to Move on"); Console.ReadKey(); Console.Clear();
+            Console.WriteLine("\n Press any key to move on"); Console.ReadKey(); Console.Clear();
             
             //using the switch to change the Different methods for levels
             switch (userLevel)
@@ -79,8 +83,11 @@ namespace Te_Reo_Maori
                 case 4:
                     Hard(name);
                     break;
+                default :
+                    Environment.Exit(0);
+                    break;
             }
-        } //End of Main Method
+        } //End of Level Method
         
         static void Base(string name)
         {
