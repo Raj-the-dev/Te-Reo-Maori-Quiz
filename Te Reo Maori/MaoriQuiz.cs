@@ -66,7 +66,7 @@ namespace Te_Reo_Maori
                 } 
             }
 
-            Console.WriteLine("\n Press any key to move on"); Console.ReadKey(); Console.Clear();
+            Console.WriteLine("\nPress any key to move on"); Console.ReadKey(); Console.Clear();
             
             //using the switch to change the Different methods for levels
             switch (userLevel)
@@ -83,7 +83,7 @@ namespace Te_Reo_Maori
                 case 4:
                     Hard(name);
                     break;
-                default :
+                case 5:
                     Environment.Exit(0);
                     break;
             }
