@@ -7,23 +7,25 @@ namespace Te_Reo_Maori
     {
         static void Main(string[] args)
         {
-            //About The Maori Quiz
-            Info();
+            string quizHeading = "----------\nMaori Quiz\n----------";
 
-            //After Doing the Info method ask the user to input his name.
-            string name = "";
-            //Heading
-            Console.WriteLine("----------\nMaori Quiz\n----------");
+            //Calling the name method to ask the user for name and store it in a variable type string
+            string name = Name(quizHeading);
 
-            //Asking user for name
-            while (name.Equals(""))
-            {
-                Console.WriteLine("\nPlease enter your name : ");
-                name = Console.ReadLine();
-            } 
-            Console.Clear();
-            //Calling the Level method to ask the user to input a level
-            Level(name);
+            //Calling the level method to ask the user for level and store it in a variable type int
+            int level = Level(quizHeading);
+
+            //Calling the info method to display the instructions
+            Info(quizHeading);
+
+            //Starting the Quiz and storing the score in an integer score
+            int score = Quiz(name, level);
+
+            //Summary of the Quiz
+            Summary(name, score);
+
+            //Ask the user if he wants to re-do the quiz
+            QuizRedo(name);
         }
         static void Info()
         {
