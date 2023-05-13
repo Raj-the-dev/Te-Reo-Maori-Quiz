@@ -27,6 +27,21 @@ namespace Te_Reo_Maori
             //Ask the user if he wants to re-do the quiz
             QuizRedo(name);
         }
+        static string Name(string quizHeading)
+        {
+            string name = "";
+
+            Console.WriteLine(quizHeading);
+            do
+            {
+                Console.WriteLine("Enter your name : ");
+                name = Console.ReadLine();
+
+            } while (name.Equals(""));
+
+            Console.Clear();
+            return name;
+        }
         static void Info()
         {
             // This will tell the user how the program works
