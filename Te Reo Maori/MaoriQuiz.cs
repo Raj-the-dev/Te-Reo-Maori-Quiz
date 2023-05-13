@@ -42,6 +42,48 @@ namespace Te_Reo_Maori
             Console.Clear();
             return name;
         }
+        static int Level(string quizHeading)
+        {
+            int level = 0;
+
+            //Heading
+            Console.WriteLine(quizHeading);
+
+            //Asking user for difficulty level
+            while (level != 1 && level != 2 && level != 3 && level != 4 && level != 5)
+            {
+                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose a number from the given option) : ");
+                Console.WriteLine("1. Base\n2. Easy\n3. Medium\n4. Hard\n5. Exit Quiz");
+
+                //Try and catch if the user input a wrong format.
+                try
+                {
+                    level = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nERROR - You did not choose a number.");
+                }
+                finally
+                {
+                    if (level != 1 && level != 2 && level != 3 && level != 4)
+                    {
+                        Console.WriteLine("\nPlease Re-enter your level. (Choose numbers from the given option)\n");
+                    }
+                    else if (level == 5)
+                    {
+                        Console.Clear();
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                    }
+                }
+            }
+
+            return level;
+        }
         static void Info()
         {
             // This will tell the user how the program works
@@ -52,59 +94,6 @@ namespace Te_Reo_Maori
             Console.ReadKey();
             Console.Clear();
         }
-
-        static void Level(string name)
-        {
-            int userLevel = 0;
-
-            //Heading
-            Console.WriteLine("----------\nMaori Quiz\n----------");
-
-            //Asking user for difficulty level
-            while (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != 5)
-            {
-                Console.WriteLine("\nWhat is your desired Difficulty Level (Choose a number from the given option) : ");
-                Console.WriteLine("1. base\n2. Easy\n3. Medium\n4. Hard\n5. Exit Quiz");
-
-                //Try and catch if the user input a wrong format.
-                try
-                {
-                    userLevel = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (FormatException) { Console.WriteLine("\nERROR - You did not choose a number."); }
-                catch (Exception) { Console.WriteLine("You did not enter any level from above"); }
-
-                finally
-                {
-                    if (userLevel != 1 && userLevel != 2 && userLevel != 3 && userLevel != 4 && userLevel != 5)
-                    {
-                        Console.WriteLine("\nPlease Re-enter your level. (Choose numbers from the given option)\n");
-                    }
-                } 
-            }
-
-            Console.WriteLine("\nPress any key to move on"); Console.ReadKey(); Console.Clear();
-            
-            //using the switch to change the Different methods for levels
-            switch (userLevel)
-            {
-                case 1:
-                    Base(name);
-                    break;
-                case 2:
-                    Easy(name);
-                    break;
-                case 3:
-                    Medium(name);
-                    break;
-                case 4:
-                    Hard(name);
-                    break;
-                case 5:
-                    Environment.Exit(0);
-                    break;
-            }
-        } //End of Level Method
         
         static void Base(string name)
         {
