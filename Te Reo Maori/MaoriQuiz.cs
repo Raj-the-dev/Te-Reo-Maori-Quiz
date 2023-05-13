@@ -84,17 +84,17 @@ namespace Te_Reo_Maori
 
             return level;
         }
-        static void Info()
+        static void Info(string quizHeading)
         {
             // This will tell the user how the program works
-            Console.WriteLine("----------\nMaori Quiz\n----------\n\n");
+            Console.WriteLine(quizHeading + "\n\n");
             string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\nYou will need to select the option that you believe is the correct answer to the question.\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\nIf you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\nIf you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\nYou can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\nYou must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!\r\n\r\n>>> Press any key to continue <<<";
 
             Console.WriteLine(about);
             Console.ReadKey();
             Console.Clear();
         }
-        
+
         static void Base(string name)
         {
             //All variables in the method
