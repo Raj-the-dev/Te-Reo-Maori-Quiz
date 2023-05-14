@@ -31,6 +31,7 @@ namespace Te_Reo_Maori
         {
             string name = "";
 
+            // Asking the user for name
             Console.WriteLine(quizHeading);
             do
             {
@@ -40,7 +41,7 @@ namespace Te_Reo_Maori
             } while (name.Equals(""));
 
             Console.Clear();
-            return name;
+            return name; // Returning name to the main method
         }
         static int Level(string quizHeading)
         {
@@ -52,6 +53,7 @@ namespace Te_Reo_Maori
             //Asking user for difficulty level
             while (level != 1 && level != 2 && level != 3 && level != 4 && level != 5)
             {
+                //Displaying level options
                 Console.WriteLine("\nWhat is your desired Difficulty Level (Choose a number from the given option) : ");
                 Console.WriteLine("1. Base\n2. Easy\n3. Medium\n4. Hard\n5. Exit Quiz");
 
@@ -73,7 +75,7 @@ namespace Te_Reo_Maori
                     else if (level == 5)
                     {
                         Console.Clear();
-                        Environment.Exit(0);
+                        Environment.Exit(0); // Exiting the program
                     }
                     else
                     {
@@ -82,7 +84,7 @@ namespace Te_Reo_Maori
                 }
             }
 
-            return level;
+            return level; // Returning level to main method
         }
         static void Info(string quizHeading)
         {
@@ -90,7 +92,7 @@ namespace Te_Reo_Maori
             Console.WriteLine(quizHeading + "\n\n");
             string about = "Welcome to the Maori Quiz! This quiz consists of multiple choice questions, where you will be presented with a question and four possible answers: A, B, C, or D.\r\n\r\nYou will need to select the option that you believe is the correct answer to the question.\r\n\r\nTo answer a question, simply type the alphabet that belongs to the option that you believe is correct and press enter.\r\n\r\nIf you get the answer correct you will see the live score change on top right of the corner. The score will increase by 2 points for each correct answer you give.\r\n\r\nIf you get the answer wrong, you will see the correct answer displayed and the quiz will continue.\r\n\r\nYou can also see how many questions you have left to answer in the top right corner of the console window.\r\n\r\nYou must answer all questions to complete the quiz. Once you have answered the final question, you will be able to see your report.\r\n\r\nGood luck, and have fun!\r\n\r\n>>> Press any key to continue <<<";
 
-            Console.WriteLine(about);
+            Console.WriteLine(about); //Displaying about on console screen
             Console.ReadKey();
             Console.Clear();
         }
@@ -102,7 +104,8 @@ namespace Te_Reo_Maori
             int score = 0, questions_left = 5;
             string[,] QnA = new string[1, 5];
 
-            string[,] base_QnA =
+            // Base level questions and answer
+            string[,] base_QnA = 
             {
                 {
                     "\n\n1. What is the official language of New Zealand?\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n",
@@ -113,6 +116,7 @@ namespace Te_Reo_Maori
                 }
                 , { "B", "B", "A", "A", "C"}
             };
+            // Easy level questions and answer
             string[,] easy_QnA =
             {
                 {
@@ -124,6 +128,7 @@ namespace Te_Reo_Maori
                 },
                 {"B", "A", "A", "D", "C"}
             };
+            // Medium level questions and answer
             string[,] medium_QnA =
             {
                 {
@@ -135,6 +140,7 @@ namespace Te_Reo_Maori
                 },
                 { "A", "B", "C","B", "C"}
             };
+            // Hard level questions and answer
             string[,] hard_QnA =
             {
                 {
@@ -146,6 +152,7 @@ namespace Te_Reo_Maori
                 },
                 {"A", "C", "B", "A", "C" }
             };
+            //Selecting users level choice before quiz using a switch statement
             switch (level)
             {
                 case 1:
@@ -203,33 +210,31 @@ namespace Te_Reo_Maori
 
             return score;
         }
-
         static void Summary(string name, int score)
         {
-            Console.WriteLine("-------------------\nReport\n-------------------");
-            Console.WriteLine("Quiz Player Name : " + name + "\nQuiz Player Score : " + score);
+            Console.WriteLine("-------------------\nReport\n-------------------"); // Heading for report
+            Console.WriteLine("Quiz Player Name : " + name + "\nQuiz Player Score : " + score); //Dashboard or scoreboard
 
-            Console.WriteLine("\nThe passing criteria for the quiz is 6 points or above.");
-            if (score == 10)
+            Console.WriteLine("\nThe passing criteria for the quiz is 6 points or above."); // Checking users score and displaying result
+            if (score == 10) //User get full score
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations you have passed the test with flying colours.", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (score > 5)
+            else if (score > 5) //User gets passing score
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Amazing You have passed the test.", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else
+            else // User does not get passing score
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Your points are insufficient to pass the quiz. Better luck next time", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }//End of summary
-
         static void QuizRedo(string name)
         {
             char redo = ' ';
@@ -238,15 +243,15 @@ namespace Te_Reo_Maori
                 Console.WriteLine("Do you want to redo the Maori Quiz (Yes/No) : ");
                 try
                 {
-                    redo = Console.ReadLine().ToUpper()[0];
+                    redo = Console.ReadLine().ToUpper()[0]; //Inputing user choice
                 }
-                catch (IndexOutOfRangeException)
+                catch (IndexOutOfRangeException) // Catching exception
                 {
                     Console.WriteLine("Error - You did not enter anything");
                 }
                 finally
                 {
-                    switch (redo)
+                    switch (redo) //Using a switch statement to check and procced with user's choice
                     {
                         case 'Y':
                             Console.Clear();
