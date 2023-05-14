@@ -232,7 +232,6 @@ namespace Te_Reo_Maori
 
         static void QuizRedo(string name)
         {
-            string strRedo;
             char redo = ' ';
             while (redo != 'Y' && redo != 'N')
             {
@@ -247,20 +246,20 @@ namespace Te_Reo_Maori
                 }
                 finally
                 {
-                    if (redo == 'Y')
+                    switch (redo)
                     {
-                        Console.Clear();
-                        Level(name);
-                    }
-                    else if (redo == 'N')
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("\nGoodBye ");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nInvalid input, Please consider entering something else");
+                        case 'Y':
+                            Console.Clear();
+                            Main(new string[] { });
+                            break;
+                        case 'N':
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\nGoodBye ");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                        default:
+                            Console.WriteLine("\nInvalid input, Please consider entering Yes/No");
+                            break;
                     }
                 }
             }
