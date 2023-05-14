@@ -204,49 +204,31 @@ namespace Te_Reo_Maori
             return score;
         }
 
-        static void Report(string name,int score, string[,] QnA, string[] input)
+        static void Summary(string name, int score)
         {
-            Console.WriteLine("-------------------\nSummary\n-------------------");
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(QnA[0, i]);
-                if (QnA[1, i] == input[i])
-                {
-                    Console.WriteLine("\nCorrect");
-                }
-                else
-                {
-                    Console.WriteLine("\nIncorrect\t Answer : " + QnA[1, i]);
-                }
-                Console.WriteLine("---------------------------------------------");
-            }
-            Console.WriteLine("Press Enter to move on to Report"); Console.ReadLine(); Console.Clear();
-
             Console.WriteLine("-------------------\nReport\n-------------------");
             Console.WriteLine("Quiz Player Name : " + name + "\nQuiz Player Score : " + score);
-            Console.WriteLine();
 
             Console.WriteLine("\nThe passing criteria for the quiz is 6 points or above.");
-            if (score < 5)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Your points are insufficient to pass the quiz. Better luck next time", Console.ForegroundColor);
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (score == 10)
+            if (score == 10)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Congratulations you have passes the test with flying colours.", Console.ForegroundColor);
+                Console.WriteLine("Congratulations you have passed the test with flying colours.", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else
+            else if (score > 5)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Amazing You have passed the test.", Console.ForegroundColor);
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            QuizRedo(name);
-        }//End of Report
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Your points are insufficient to pass the quiz. Better luck next time", Console.ForegroundColor);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }//End of summary
 
         static void QuizRedo(string name)
         {
