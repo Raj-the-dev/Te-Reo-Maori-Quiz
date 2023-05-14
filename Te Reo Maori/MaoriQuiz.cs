@@ -94,15 +94,15 @@ namespace Te_Reo_Maori
             Console.ReadKey();
             Console.Clear();
         }
-
-        static void Base(string name)
+        static int Quiz(string name, int level)
         {
             //All variables in the method
             string quizHeading;
-            string[] base_input = new string[5];
+            string[] input = new string[5];
             int score = 0, questions_left = 5;
+            string[,] QnA = new string[1, 5];
 
-            string[,] QnA = 
+            string[,] base_QnA =
             {
                 {
                     "\n\n1. What is the official language of New Zealand?\nA. Japanese\nB. Maori\nC. Spanish\nD. French\n",
@@ -111,60 +111,9 @@ namespace Te_Reo_Maori
                     "\n\n4. What is the Maori work for \"Love\"\nA. Aroha\nB. Whakapapa\nC. Rongo\nD. Kai\n",
                     "\n\n5. Which of the following means \"Food\" in Maori\nA. Mana\nB. Haka\nC. Kai\nD. None of the Above\n"
                 }
-                , { "B", "B", "A", "A", "C"} 
+                , { "B", "B", "A", "A", "C"}
             };
-
-            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
-            for (int i = 0; i < 5; i++)
-            {
-                // Centered Heading for the Quiz, Score and the questions left to answer.
-                quizHeading = "----------Maori Quiz----------";
-                Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
-                Console.WriteLine(quizHeading);
-                Console.WriteLine("Base Level");
-                Console.WriteLine(name + "'s score : " + score);
-                Console.WriteLine("Questions left : " + questions_left);
-
-                //Put a while loop for asking the user for input on the question and response on invalid input.
-                do
-                {
-                    Console.WriteLine(QnA[0, i]);
-                    base_input[i] = Console.ReadLine().ToUpper();
-                    if (!base_input[i].Equals("A") && !base_input[i].Equals("B") && !base_input[i].Equals("C") && !base_input[i].Equals("D"))
-                    {
-                        Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
-                    }
-                } while (!base_input[i].Equals("A") && !base_input[i].Equals("B") && !base_input[i].Equals("C") && !base_input[i].Equals("D"));
-
-                //Checking if the answer was incorrect of correct.
-                if (base_input[i] == QnA[1,i])
-                {
-                    Console.WriteLine("\nRight answer " + name);
-                    score += 2;
-                    questions_left--;
-                }
-                else
-                {
-                    Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + QnA[1,i]);
-                    questions_left--;
-                }
-                //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
-            }//end of loop
-
-            //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, QnA, base_input);
-        } //End of Base Method
-
-        static void Easy(string name)
-        {
-            //All variable in Easy level including strings, string arrrays, integer
-            string quizHeading;
-            string[] easy_input = new string[5];
-            int score = 0, questions_left = 5;
-            
-            string[,] QnA =
+            string[,] easy_QnA =
             {
                 {
                     "\n\n1. How many vowels does the Maori language have? (Please choose alphabet only)\nA. 5\nB. 6\nC. 7\nD. 9\n",
@@ -175,57 +124,7 @@ namespace Te_Reo_Maori
                 },
                 {"B", "A", "A", "D", "C"}
             };
-
-            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
-            for (int i = 0; i < 5; i++)
-            {
-                //Heading for the Quiz, Score and the questions left to answer.
-                quizHeading = "----------Maori Quiz----------";
-                Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
-                Console.WriteLine(quizHeading);
-                Console.WriteLine("Easy Level");
-                Console.WriteLine(name + "'s score : " + score);
-                Console.WriteLine("Questions left : " + questions_left);
-
-                //Put a while loop for asking the user for input on the question and response on invalid input.
-                do
-                {
-                    Console.WriteLine(QnA[0, i]);
-                    easy_input[i] = Console.ReadLine().ToUpper();
-                    if (!easy_input[i].Equals("A") && !easy_input[i].Equals("B") && !easy_input[i].Equals("C") && !easy_input[i].Equals("D"))
-                    {
-                        Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
-                    }
-                } while (!easy_input[i].Equals("A") && !easy_input[i].Equals("B") && !easy_input[i].Equals("C") && !easy_input[i].Equals("D"));
-                //Checking if the answer was incorrect of correct.
-                if (easy_input[i] == QnA[1, i])
-                {
-                    Console.WriteLine("\nRight answer " + name);
-                    score += 2;
-                    questions_left--;
-                }
-                else
-                {
-                    Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + QnA[1, i]);
-                    questions_left--;
-                }
-                //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
-            }//end of loop
-
-            //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, QnA, easy_input);
-
-        }//End of Easy Method
-        static void Medium(string name)
-        {
-            //All variables the medium level
-            string quizHeading;
-            string[] medium_input = new string[5];
-            int score = 0, questions_left = 5;
-
-            string[,] QnA =
+            string[,] medium_QnA =
             {
                 {
                     "\n\n1. What is the meaning of \"mana\" in Maori?\nA. Respect\nB. Love\nC. Power\nD. Hate\n",
@@ -236,58 +135,7 @@ namespace Te_Reo_Maori
                 },
                 { "A", "B", "C","B", "C"}
             };
-
-            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
-            for (int i = 0; i < 5; i++)
-            {
-                //Heading for the Quiz, Score and the questions left to answer.
-                quizHeading = "----------Maori Quiz----------";
-                Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
-                Console.WriteLine(quizHeading);
-                Console.WriteLine("Medium Level");
-                Console.WriteLine(name + "'s score : " + score);
-                Console.WriteLine("Questions left : " + questions_left);
-
-                //Put a while loop for asking the user for input on the question and response on invalid input.
-                do
-                {
-                    Console.WriteLine(QnA[0, i]);
-                    medium_input[i] = Console.ReadLine().ToUpper();
-                    if (!medium_input[i].Equals("A") && !medium_input[i].Equals("B") && !medium_input[i].Equals("C") && !medium_input[i].Equals("D"))
-                    {
-                        Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
-                    }
-                } while (!medium_input[i].Equals("A") && !medium_input[i].Equals("B") && !medium_input[i].Equals("C") && !medium_input[i].Equals("D"));
-
-                //Checking if the answer was incorrect of correct.
-                if (medium_input[i] == QnA[1, i])
-                {
-                    Console.WriteLine("\nRight answer " + name);
-                    score += 2;
-                    questions_left--;
-                }
-                else
-                {
-                    Console.WriteLine("\nNice try " + name);
-                    Console.WriteLine("Answer : " + QnA[1, i]);
-                    questions_left--;
-                }
-                //Progress to the other question after pressing enter.
-                Console.WriteLine("\nPress Enter to continue");  Console.ReadKey(); Console.Clear();
-            }//end of loop
-
-            //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, QnA, medium_input);
-
-        }//End of medium method
-        static void Hard(string name)
-        {
-            //All variables the Hard level
-            string quizHeading;
-            string[] hard_input = new string[5];
-            int score = 0, questions_left = 5;
-
-            string[,] QnA =
+            string[,] hard_QnA =
             {
                 {
                     "\n\n1. What is the meaning of the Maori word \"whare\"?\nA. House or Building\nB. Land or Trritory\nC. Ocean or sea\nD. River or Lake\n",
@@ -298,15 +146,30 @@ namespace Te_Reo_Maori
                 },
                 {"A", "C", "B", "A", "C" }
             };
+            switch (level)
+            {
+                case 1:
+                    QnA = base_QnA;
+                    break;
+                case 2:
+                    QnA = easy_QnA;
+                    break;
+                case 3:
+                    QnA = medium_QnA;
+                    break;
+                case 4:
+                    QnA = hard_QnA;
+                    break;
 
-            ////Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Easy level
+            }
+
+            //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
             for (int i = 0; i < 5; i++)
             {
-                //Heading for the Quiz, Score and the questions left to answer.
+                // Centered Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
                 Console.SetCursorPosition((Console.WindowWidth - quizHeading.Length) / 2, Console.CursorTop);
                 Console.WriteLine(quizHeading);
-                Console.WriteLine("Hard Level");
                 Console.WriteLine(name + "'s score : " + score);
                 Console.WriteLine("Questions left : " + questions_left);
 
@@ -314,15 +177,15 @@ namespace Te_Reo_Maori
                 do
                 {
                     Console.WriteLine(QnA[0, i]);
-                    hard_input[i] = Console.ReadLine().ToUpper();
-                    if (!hard_input[i].Equals("A") && !hard_input[i].Equals("B") && !hard_input[i].Equals("C") && !hard_input[i].Equals("D"))
+                    input[i] = Console.ReadLine().ToUpper();
+                    if (!input[i].Equals("A") && !input[i].Equals("B") && !input[i].Equals("C") && !input[i].Equals("D"))
                     {
                         Console.WriteLine("\nThe answer that you have entered is invalid. Please choose a option from the given question.\n");
                     }
-                } while (!hard_input[i].Equals("A") && !hard_input[i].Equals("B") && !hard_input[i].Equals("C") && !hard_input[i].Equals("D"));
+                } while (!input[i].Equals("A") && !input[i].Equals("B") && !input[i].Equals("C") && !input[i].Equals("D"));
 
                 //Checking if the answer was incorrect of correct.
-                if (hard_input[i] == QnA[1, i])
+                if (input[i] == QnA[1, i])
                 {
                     Console.WriteLine("\nRight answer " + name);
                     score += 2;
@@ -338,10 +201,9 @@ namespace Te_Reo_Maori
                 Console.WriteLine("\nPress Enter to continue"); Console.ReadKey(); Console.Clear();
             }//end of loop
 
-            //Sending information of the user to the Report method after completing quiz so that it can finalise the result/report.
-            Report(name, score, QnA, hard_input);
+            return score;
+        }
 
-        }//End of Hard level
         static void Report(string name,int score, string[,] QnA, string[] input)
         {
             Console.WriteLine("-------------------\nSummary\n-------------------");
