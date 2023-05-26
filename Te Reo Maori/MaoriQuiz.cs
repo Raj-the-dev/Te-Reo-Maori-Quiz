@@ -37,8 +37,15 @@ namespace Te_Reo_Maori
             {
                 Console.WriteLine("Enter your name : ");
                 name = Console.ReadLine();
-
-            } while (name.Equals(""));
+                if (name.Equals(""))
+                {
+                    Console.WriteLine("The name was empty. PLease enter a valid name.");
+                }
+                else if (name.Length > 20)
+                {
+                    Console.WriteLine("Name length exceeds that maximum limit. PLease enter a valid name");
+                }
+            } while (name.Equals("") || name.Length > 20);
 
             Console.Clear();
             return name; // Returning name to the main method
@@ -102,7 +109,7 @@ namespace Te_Reo_Maori
             string quizHeading;
             string[] input = new string[5];
             int score = 0, questions_left = 5;
-            string[,] QnA = new string[1, 5];
+            string[,] QnA = new string[0, 0];
 
             // Base level questions and answer
             string[,] base_QnA = 
@@ -171,7 +178,7 @@ namespace Te_Reo_Maori
             }
 
             //Quiz loop the Questions and the input from the user and chack whether the answer was correct for the Base level
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < QnA.GetLength(1); i++)
             {
                 // Centered Heading for the Quiz, Score and the questions left to answer.
                 quizHeading = "----------Maori Quiz----------";
